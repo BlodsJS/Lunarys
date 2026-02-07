@@ -7,10 +7,11 @@
     "accuracy": "high",
     "ratio": 0,
     "media": "sub",
-    "languages": ["all"],
+    "languages": ["PT"],
     "nsfw": false,
     "icon": "https://i.pinimg.com/736x/57/30/de/5730de9467f72d74ad13087e853e1e70.jpg",
-    "code": "https://raw.githubusercontent.com/BlodsJS/Lunarys/main/source.js"
+    "code": "https://raw.githubusercontent.com/BlodsJS/Lunarys/main/source.js",
+    "update": "https://raw.githubusercontent.com/BlodsJS/Lunarys/refs/heads/main/index.json"
   },
 
   {
@@ -21,9 +22,11 @@
     "accuracy": "low",
     "ratio": 0,
     "media": "sub",
-    "languages": ["all"],
+    "languages": ["PT"],
     "nsfw": false,
-    "code": "https://raw.githubusercontent.com/BlodsJS/Lunarys/main/placeholder.js"
+    "icon": "https://i.pinimg.com/736x/57/30/de/5730de9467f72d74ad13087e853e1e70.jpg",
+    "code": "https://raw.githubusercontent.com/BlodsJS/Lunarys/main/placeholder.js",
+    "update": "https://raw.githubusercontent.com/BlodsJS/Lunarys/refs/heads/main/index.json"
   }
 ]
 
