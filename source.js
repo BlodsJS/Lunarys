@@ -8,6 +8,21 @@ export default new class AnimePTBR {
 
   batch = this.single
   movie = this.single
+  async single({ titles, episode }) {
+    return [{
+      title: 'TESTE LUNARYS',
+      link: 'magnet:?xt=urn:btih:TEST',
+      hash: 'TEST',
+      seeders: 1,
+      leechers: 0,
+      downloads: 0,
+      size: 0,
+      date: new Date(),
+      accuracy: 'high',
+      type: 'sub'
+    }]
+  }
+
 
   async search(title, episode) {
     let query = title.replace(/[^\w\s-]/g, ' ').trim()
