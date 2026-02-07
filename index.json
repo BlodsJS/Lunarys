@@ -11,6 +11,6 @@
     "nsfw": false,
     "icon": "https://i.pinimg.com/736x/57/30/de/5730de9467f72d74ad13087e853e1e70.jpg",
     "update": "https://raw.githubusercontent.com/BlodsJS/Lunarys/refs/heads/main/index.json",
-    "code": "https://raw.githubusercontent.com/BlodsJS/Lunarys/refs/heads/main/source.js"
+    "code": "https://raw.githubusercontent.com/BlodsJS/Lunarys/main/source.js"
   }
 ]
