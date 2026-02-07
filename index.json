@@ -1,16 +1,29 @@
 [
   {
-    "id": "anime-ptbr",
-    "name": "Lunarys Source",
+    "id": "lunarys.anime.ptbr",
+    "name": "Lunarys PT-BR",
     "version": "1.0.0",
     "type": "torrent",
     "accuracy": "high",
     "ratio": 0,
     "media": "sub",
-    "languages": ["PT"],
+    "languages": ["all"],
     "nsfw": false,
     "icon": "https://i.pinimg.com/736x/57/30/de/5730de9467f72d74ad13087e853e1e70.jpg",
-    "update": "https://raw.githubusercontent.com/BlodsJS/Lunarys/main/index.json",
     "code": "https://raw.githubusercontent.com/BlodsJS/Lunarys/main/source.js"
+  },
+
+  {
+    "id": "lunarys.placeholder",
+    "name": "Lunarys Core",
+    "version": "1.0.0",
+    "type": "torrent",
+    "accuracy": "low",
+    "ratio": 0,
+    "media": "sub",
+    "languages": ["all"],
+    "nsfw": false,
+    "code": "https://raw.githubusercontent.com/BlodsJS/Lunarys/main/placeholder.js"
   }
 ]
+
