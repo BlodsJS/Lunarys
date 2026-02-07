@@ -1,15 +1,16 @@
 [
   {
-    "id": "anime.lunarys.ptbr",
-    "name": "Lunarys",
+    "id": "anime-ptbr",
+    "name": "Lunarys Source",
     "version": "1.0.0",
     "type": "torrent",
     "accuracy": "high",
     "ratio": 0,
     "media": "sub",
-    "languages": ["PT-BR"],
+    "languages": ["PT"],
     "nsfw": false,
     "icon": "https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg",
+    "update": "https://raw.githubusercontent.com/BlodsJS/Lunarys/refs/heads/main/index.json",
     "code": "https://raw.githubusercontent.com/BlodsJS/Lunarys/refs/heads/main/source.js"
   }
 ]
