@@ -7,26 +7,11 @@
     "accuracy": "high",
     "ratio": 0,
     "media": "sub",
-    "languages": ["PT"],
+    "languages": ["ALL"],
     "nsfw": false,
     "icon": "https://i.pinimg.com/736x/57/30/de/5730de9467f72d74ad13087e853e1e70.jpg",
     "code": "https://raw.githubusercontent.com/BlodsJS/Lunarys/main/source.js",
-    "update": "https://raw.githubusercontent.com/BlodsJS/Lunarys/refs/heads/main/index.json"
-  },
-
-  {
-    "id": "lunarys.placeholder",
-    "name": "Lunarys Core",
-    "version": "1.0.0",
-    "type": "torrent",
-    "accuracy": "low",
-    "ratio": 0,
-    "media": "sub",
-    "languages": ["PT"],
-    "nsfw": false,
-    "icon": "https://i.pinimg.com/736x/57/30/de/5730de9467f72d74ad13087e853e1e70.jpg",
-    "code": "https://raw.githubusercontent.com/BlodsJS/Lunarys/main/placeholder.js",
-    "update": "https://raw.githubusercontent.com/BlodsJS/Lunarys/refs/heads/main/index.json"
+    "update": "https://raw.githubusercontent.com/BlodsJS/Lunarys/main/index.json"
   }
 ]
 
