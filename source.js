@@ -22,7 +22,9 @@ export default new (class AnimePTBR {
 
     const normalizedTitle = title.toLowerCase();
 
-    return data
+    return data;
+    console
+      .log("Procura feita...")
       .map((item) => this.map(item))
       .filter((item) => {
         const t = item.title.toLowerCase();
