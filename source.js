@@ -13,6 +13,7 @@ export default new (class AnimePTBR {
   async search(title, episode) {
     let query = title.replace(/[^\w\s-]/g, " ").trim();
 
+    // NÃO força episódio (deixa mais solto)
     if (episode) {
       query += ` ${episode}`;
     }
@@ -21,27 +22,9 @@ export default new (class AnimePTBR {
     const data = await res.json();
     if (!Array.isArray(data)) return [];
 
-    const normalizedTitle = title.toLowerCase();
+    return data.map((item) => this.map(item));
+    // 🔥 temporariamente desativa filtro
 
-    return data
-      .map((item) => this.map(item))
-      .filter((item) => {
-        const t = item.title.toLowerCase();
-
-        // 🎯 match mínimo do nome
-        const nameMatch =
-          t.includes(normalizedTitle) ||
-          normalizedTitle.split(" ").every((word) => t.includes(word));
-
-        return nameMatch && this.isLikelyPT(t);
-      });
-  }
-
-  // ⚠️ FILTRO REALISTA PARA NYAA
-  isLikelyPT(title) {
-    title = title.toLowerCase();
-
-    // Forte (raros, mas certeiros)
     const strong = ["pt-br", "ptbr", "leg pt", "[pt]", "(pt)"];
 
     // Fracos (muito comuns no Nyaa)
@@ -81,7 +64,7 @@ export default new (class AnimePTBR {
 
   async test() {
     try {
-      const res = await fetch(this.base + encodeURIComponent("naruto"));
+      const res = await fetch(this.base + "naruto pt");
       return res.ok;
     } catch {
       return false;

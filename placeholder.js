@@ -1,16 +1,17 @@
 export default {
-  async test() { return true },
-  async single() { return [] },
-  batch() { return [] },
-  movie() { return [] }
-}
-  async single() {
+  async test() {
+    return true;
+  },
+
+  async single({ titles, episode }) {
     return [];
   },
-  batch() {
-    return [];
+
+  batch({ titles, episode }) {
+    return this.single({ titles, episode });
   },
-  movie() {
-    return [];
+
+  movie({ titles }) {
+    return this.single({ titles });
   },
 };
