@@ -3,7 +3,6 @@ export default new (class AnimePTBR {
 
   async single({ titles, episode }) {
     if (!titles?.length) return [];
-
     return this.search(titles[0], episode);
   }
 
@@ -13,7 +12,6 @@ export default new (class AnimePTBR {
   async search(title, episode) {
     let query = title.replace(/[^\w\s-]/g, " ").trim();
 
-    // NÃO força episódio (deixa mais solto)
     if (episode) {
       query += ` ${episode}`;
     }
@@ -22,15 +20,36 @@ export default new (class AnimePTBR {
     const data = await res.json();
     if (!Array.isArray(data)) return [];
 
-    return data.map((item) => this.map(item));
-    // 🔥 temporariamente desativa filtro
+    const normalizedTitle = title.toLowerCase();
+
+    return data
+      .map((item) => this.map(item))
+      .filter((item) => {
+        const t = item.title.toLowerCase();
+
+        // 🎯 Garante que o anime corresponde ao nome
+        return (
+          t.includes(normalizedTitle) ||
+          normalizedTitle.split(" ").every((word) => t.includes(word))
+        );
+      })
+      .sort((a, b) => {
+        // 🌙 Prioriza PT-BR sem excluir outros
+        const ptA = this.isLikelyPT(a.title);
+        const ptB = this.isLikelyPT(b.title);
+
+        if (ptA !== ptB) return ptB - ptA;
+
+        // 🌟 Se empate, usa seeders
+        return b.seeders - a.seeders;
+      });
+  }
+
+  isLikelyPT(title) {
+    title = title.toLowerCase();
 
     const strong = ["pt-br", "ptbr", "leg pt", "[pt]", "(pt)"];
-
-    // Fracos (muito comuns no Nyaa)
     const weak = [" pt ", "-pt-", "multi", "dual", "mult-subs", "subs"];
-
-    // Fansubs brasileiros / latinos conhecidos
     const fansubs = [
       "darkside",
       "animeforce",
@@ -49,7 +68,7 @@ export default new (class AnimePTBR {
 
   map(item) {
     return {
-      title: item.title,
+      title: item.title || "Unknown",
       link: item.magnet_uri || "",
       hash: item.info_hash || "",
       seeders: Number(item.seeders || 0),
@@ -64,7 +83,7 @@ export default new (class AnimePTBR {
 
   async test() {
     try {
-      const res = await fetch(this.base + "naruto pt");
+      const res = await fetch(this.base + encodeURIComponent("naruto"));
       return res.ok;
     } catch {
       return false;
