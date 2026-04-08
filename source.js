@@ -26,12 +26,10 @@ export default new (class AnimePTBR {
       .map((item) => this.map(item))
       .filter((item) => {
         const t = item.title.toLowerCase();
+        const words = normalizedTitle.split(" ").filter((w) => w.length > 2);
 
-        // 🎯 Garante que o anime corresponde ao nome
-        return (
-          t.includes(normalizedTitle) ||
-          normalizedTitle.split(" ").every((word) => t.includes(word))
-        );
+        // precisa bater pelo menos UMA palavra relevante
+        return words.some((word) => t.includes(word));
       })
       .sort((a, b) => {
         // 🌙 Prioriza PT-BR sem excluir outros
