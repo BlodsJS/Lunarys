@@ -1,5 +1,5 @@
 export default new (class AnimePTBR {
-  base = "https://torrent-search-api-livid.vercel.app/api/nyaasi/";
+  base = "https://feed.animetosho.org/json?search=";
 
   async single({ titles, episode }) {
     if (!titles?.length) return [];
@@ -56,14 +56,14 @@ export default new (class AnimePTBR {
 
   map(item) {
     return {
-      title: item.Name || "Unknown",
-      link: item.Magnet || "",
-      hash: item.Magnet?.match(/btih:([A-Fa-f0-9]+)/)?.[1] || "",
-      seeders: Number(item.Seeders || 0),
-      leechers: Number(item.Leechers || 0),
-      downloads: Number(item.Downloads || 0),
-      size: 0,
-      date: new Date(item.DateUploaded),
+      title: item.title,
+      link: item.magnet_uri || "",
+      hash: item.info_hash || "",
+      seeders: Number(item.seeders || 0),
+      leechers: Number(item.leechers || 0),
+      downloads: 0,
+      size: item.total_size || 0,
+      date: new Date(item.timestamp * 1000),
       accuracy: "medium",
       type: "sub",
     };
