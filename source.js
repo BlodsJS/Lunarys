@@ -78,4 +78,13 @@ export default new (class AnimePTBR {
       type: "sub",
     };
   }
+
+  async test() {
+    try {
+      const res = await fetch(this.base + encodeURIComponent("naruto"));
+      return res.ok;
+    } catch {
+      return false;
+    }
+  }
 })();
